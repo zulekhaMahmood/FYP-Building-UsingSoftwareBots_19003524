@@ -1,0 +1,565 @@
+{
+  "intents": [
+    {
+      "intent": "BenefitsRewards",
+      "examples": [
+        {
+          "text": "Benefits"
+        },
+        {
+          "text": "Benefits and rewards"
+        },
+        {
+          "text": "Benefits and rewards scheme"
+        },
+        {
+          "text": "Benefits scheme"
+        },
+        {
+          "text": "Rewards"
+        },
+        {
+          "text": "Rewards scheme"
+        },
+        {
+          "text": "What benefits and rewards are there?"
+        }
+      ],
+      "description": "Provides user with the benefits and rewards scheme"
+    },
+    {
+      "intent": "FlexibleWorking",
+      "examples": [
+        {
+          "text": "Arrangements for flexible working"
+        },
+        {
+          "text": "Flexible arrangements"
+        },
+        {
+          "text": "Flexible working"
+        },
+        {
+          "text": "Flexible working arrangements"
+        },
+        {
+          "text": "How can I work flexibly?"
+        },
+        {
+          "text": "What flexible working arrangements are there?"
+        },
+        {
+          "text": "Working flexibly"
+        }
+      ],
+      "description": "Provides user with the flexible working arrangements"
+    },
+    {
+      "intent": "Goodbye",
+      "examples": [
+        {
+          "text": "Bye"
+        },
+        {
+          "text": "Goodbye"
+        },
+        {
+          "text": "Many thanks"
+        },
+        {
+          "text": "See you later"
+        },
+        {
+          "text": "See you soon"
+        },
+        {
+          "text": "Thanks"
+        },
+        {
+          "text": "Thanks alot"
+        },
+        {
+          "text": "Thanks so much"
+        },
+        {
+          "text": "Thank you"
+        },
+        {
+          "text": "Thank you very much"
+        }
+      ],
+      "description": "Thanks the user and says goodbye."
+    },
+    {
+      "intent": "Greeting",
+      "examples": [
+        {
+          "text": "Greetings"
+        },
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hey"
+        },
+        {
+          "text": "Hi"
+        }
+      ],
+      "description": "Greets user and displays 5 commonly asked questions/FAQs"
+    },
+    {
+      "intent": "Sickness",
+      "examples": [
+        {
+          "text": "I am sick"
+        },
+        {
+          "text": "Leave for sickness"
+        },
+        {
+          "text": "Sick"
+        },
+        {
+          "text": "Sick leave"
+        },
+        {
+          "text": "Sickness"
+        },
+        {
+          "text": "Sickness leave"
+        },
+        {
+          "text": "What do I do if I am sick?"
+        }
+      ],
+      "description": "Provides user with information on what to do if sick"
+    },
+    {
+      "intent": "UnusedLeave",
+      "examples": [
+        {
+          "text": "Can unused leave be carried over to the next year?"
+        },
+        {
+          "text": "I have leave left to use"
+        },
+        {
+          "text": "I haven't used my leave"
+        },
+        {
+          "text": "I have unused leave"
+        },
+        {
+          "text": "Unused leave"
+        },
+        {
+          "text": "What should I do with unused leave?"
+        }
+      ],
+      "description": "Provides user information on unused leave"
+    },
+    {
+      "intent": "WorkingHoursFullTime",
+      "examples": [
+        {
+          "text": "Full-time hours"
+        },
+        {
+          "text": "Full-time working hours"
+        },
+        {
+          "text": "What are the working hours for full-time?"
+        },
+        {
+          "text": "Working hours"
+        }
+      ],
+      "description": "Provides user with the working hours for full-time"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "FlexibleWorking",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Flexible working",
+          "synonyms": [
+            "Working Arrangements",
+            "Work Support"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Sickness",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Sick",
+          "synonyms": [
+            "Ill",
+            "Poorly",
+            "Unwell"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "UnusedLeave",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Leave",
+          "synonyms": [
+            "Annual leave",
+            "Breaks",
+            "Holidays",
+            "Time-off",
+            "Vacations"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "WorkingHours",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Working hours",
+          "synonyms": [
+            "Business hours",
+            "Hours of work",
+            "Office hours"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_5_1673405756815",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Flexible working arrangements for employees include part-time work, job sharing, casual work, unpaid leave, flexitime and working remotely. These aim to help employees balance work with personal commitments."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#FlexibleWorking",
+      "dialog_node": "node_1_1673407637067",
+      "previous_sibling": "node_4_1673406490520"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "All leave must be taken before the end of the leave year. If you still have unused leave, you may only carry over maximum 10 days into the next year. Any unused leave above this limit will be lost."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#UnusedLeave",
+      "dialog_node": "node_2_1673409438529",
+      "previous_sibling": "node_6_1673409419666"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The working hours for a full-time employee are 37 hours a week. This equates to 7.4 hours from Monday - Friday. Working hours during the weekdays are 9:00am - 16:24pm excluding lunch."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#WorkingHoursFullTime",
+      "dialog_node": "node_4_1673406490520",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Our benefits and rewards focus on supporting employees and are undeniably very enticing. The benefits include a cycle to work scheme, eyecare, pension contribution, flexible working arrangements and mental wellbeing support. The rewards include employee discounts, gift cards, bonuses and meals out with the team."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#BenefitsRewards",
+      "dialog_node": "node_4_1673408563477",
+      "previous_sibling": "node_1_1673407637067"
+    },
+    {
+      "type": "standard",
+      "title": "Farewell",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you for chatting with me today. Goodbye."
+              },
+              {
+                "text": "Thanks for getting in touch today. Goodbye."
+              },
+              {
+                "text": "Thank you, I appreciate your time today. Goodbye."
+              },
+              {
+                "text": "Thank you, always happy to help. Goodbye."
+              },
+              {
+                "text": "Thanks, hope to chat again. Goodbye"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Goodbye",
+      "dialog_node": "node_5_1673405756815",
+      "previous_sibling": "node_2_1673409438529"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "If you are sick, you must notify your line manager as soon as possible. They will assess the extent of your sickness and guide you on next steps. It is standard procedure for you to log your sickness and update your calendar to ensure your team members are aware."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Sickness",
+      "dialog_node": "node_6_1673409419666",
+      "previous_sibling": "node_4_1673408563477"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Flexible working arrangements for employees include part-time work, job sharing, casual work, unpaid leave, flexitime and working remotely. These aim to help employees balance work with personal commitments."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1673407637067",
+      "conditions": "@FlexibleWorking",
+      "dialog_node": "node_6_1673443600982"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "If you are sick, you must notify your line manager as soon as possible. They will assess the extent of your sickness and guide you on next steps. It is standard procedure for you to log your sickness and update your calendar to ensure your team members are aware."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1673409419666",
+      "conditions": "@Sickness",
+      "dialog_node": "node_6_1673443648306"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "The working hours for a full-time employee are 37 hours a week. This equates to 7.4 hours from Monday - Friday. Working hours during the weekdays are 9:00am - 16:24pm excluding lunch."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1673406490520",
+      "conditions": "@WorkingHours",
+      "dialog_node": "node_9_1673443475254"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "All leave must be taken before the end of the leave year. If you still have unused leave, you may only carry over maximum 10 days into the next year. Any unused leave above this limit will be lost."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1673409438529",
+      "conditions": "@UnusedLeave",
+      "dialog_node": "node_9_1673443692551"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi. How can I help you?"
+              },
+              {
+                "text": "Hi. What would you like help with? "
+              },
+              {
+                "text": "Hi. How may I be of assistance?"
+              },
+              {
+                "text": "Hi. How may I assist you?"
+              },
+              {
+                "text": "Hi. What can I assist you with?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          },
+          {
+            "title": "You can choose below from a few frequently asked questions:",
+            "options": [
+              {
+                "label": "Full-time working hours",
+                "value": {
+                  "input": {
+                    "text": "Full-time working hours"
+                  }
+                }
+              },
+              {
+                "label": "Flexible working arrangements",
+                "value": {
+                  "input": {
+                    "text": "Flexible working arrangements"
+                  }
+                }
+              },
+              {
+                "label": "Benefits and rewards",
+                "value": {
+                  "input": {
+                    "text": "Benefits and rewards"
+                  }
+                }
+              },
+              {
+                "label": "Sick leave",
+                "value": {
+                  "input": {
+                    "text": "Sick leave"
+                  }
+                }
+              },
+              {
+                "label": "Unused leave",
+                "value": {
+                  "input": {
+                    "text": "Unused leave"
+                  }
+                }
+              }
+            ],
+            "description": "",
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#Greeting",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "name": "Company Bot",
+  "language": "en",
+  "description": "created for assistant 87a83e79-42df-442c-a4e2-f5398ad797ff"
+}
